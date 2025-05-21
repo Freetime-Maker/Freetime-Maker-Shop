@@ -1,45 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freetime Maker Shop</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Freetime Maker Shop</title>
+  <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/@nowpaymentsio/nowpayments-api-js/dist/nowpayments-api-js.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F1XFVB58V9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F1XFVB58V9');
+</script>
 </head>
 <body>
+  <header>
+    <h1>Freetime Maker Shop</h1>
+  </header>
 
-    <div class="header">
-    <div class="container">
-        <div class="navbar">
-        <div class="logo">
-            <img src="images/logo.png" alt="Freetime Maker Shop Logo" width="125px">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Products</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact</a></li>
-                <li><a href="">Account</a></li>
-            </ul>
-        </nav>
-        <img src="images/cart.png" alt="Shopping Cart" width="30px" height="30px">
-    </div>
-    <div class="row">
-        <div class="col-2">
-            <h1>Download the Games and Apps here with the newest Versions!</h1>
-            <a href="" class="btn">Explore now &#8594;</a>
-        </div>
-        <div class="col-2">
-            <img src="images/pic1.png" alt="Download Logo">
-        </div>
-    </div>
-    </div>
+  <main>
+    <section id="products">
+      
+  <div class="product">
+    <img src="images/platformer.png" alt="2D Platformer" width="150">
+    <h3>2D Platformer Android</h3>
+    <p>11 USD</p>
+    <a href="https://nowpayments.io/payment/?iid=5708002305">
+      <button>Pay with crypto</button>
+    </a>
+  </div>
+  
+  <div class="product">
+    <img src="images/platformer.png" alt="2D Platformer" width="150">
+    <h3>2D Platformer Windows</h3>
+    <p>11 USD</p>
+    <a href="">
+      <button>Pay with crypto</button>
+    </a>
+  </div>
+
+  <div class="product">
+    <img src="images/plc.png" alt="Programming Language Clicker" width="150">
+    <h3>Programming Language Clicker Android</h3>
+    <p>12 USD</p>
+    <a href="https://nowpayments.io/payment/?iid=4544861892">
+      <button>Pay with crypto</button>
+    </a>
+  </div>
+  
+  <div class="product">
+      <img src="images/logo.png" alt="Logo" width="150">
+      <h3>Donations</h3>
+      <p>Anything</p>
+      <a href="donations.html">
+        <button>Donate to me</button>
+      </a>
     </div>
     
+    <div class="product">
+      <img src="images/logo.png" alt="Logo" width="150">
+      <h3>Support</h3>
+      <p>If you need Support just mail me.</p>
+      <a href="support.html">
+        <button>Search Support here</button>
+      </a>
+    </div>
+</section>
 
+    
+  </main>
 
-
+  <script src="script.js"></script>
 </body>
 </html>
