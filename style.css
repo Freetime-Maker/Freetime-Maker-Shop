@@ -37,3 +37,10 @@ button {
   cursor: pointer;
   border-radius: 5px;
 }
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
