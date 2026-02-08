@@ -9,10 +9,21 @@ class FreetimeShop {
 
     async init() {
         try {
-            // Load FreetimeSDK (Node.js version)
-            const { FreetimePaymentSDK, CoinType } = require('freetimesdk');
-            this.sdk = new FreetimePaymentSDK();
-            this.CoinType = CoinType;
+            // For browser environment, we'll use a simplified version
+            // The SDK will be loaded via CDN or bundled
+            if (typeof window !== 'undefined' && window.FreetimePaymentSDK) {
+                this.sdk = new window.FreetimePaymentSDK();
+                this.CoinType = window.CoinType;
+            } else {
+                // Fallback for development without SDK
+                console.warn('⚠️ FreetimeSDK not available, using fallback mode');
+                this.sdk = null;
+                this.CoinType = {
+                    BITCOIN: 'BTC',
+                    ETHEREUM: 'ETH',
+                    LITECOIN: 'LTC'
+                };
+            }
             
             // Create shop wallets
             await this.createShopWallets();
