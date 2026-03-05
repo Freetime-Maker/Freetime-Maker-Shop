@@ -1,0 +1,26 @@
+{
+  "name": "fms",
+  "version": "1.0.0",
+  "description": "The official online shop from Freetime Maker. Here you can buy and download games and apps for various platforms like Android, Windows, and Linux.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FreetimeMaker/Freetime-Maker-Shop.git"
+  },
+  "author": "Freetime Maker",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/FreetimeMaker/Freetime-Maker-Shop/issues"
+  },
+  "homepage": "https://github.com/FreetimeMaker/Freetime-Maker-Shop#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mileston-payments": "^0.2.3"
+  }
+}
