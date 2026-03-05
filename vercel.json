@@ -1,39 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "./main.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "public/**",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "style.css",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "images/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/public/(.*)",
-      "dest": "/public/$1"
-    },
-    {
-      "src": "/style.css",
-      "dest": "/style.css"
-    },
-    {
-      "src": "/images/(.*)",
-      "dest": "/images/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/main.js"
-    }
-  ]
+  "buildCommand": "npm run build",
+  "outputDirectory": ".",
+  "env": {}
 }
