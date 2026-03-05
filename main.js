@@ -1,31 +1,14 @@
-const { app, BrowserWindow } = require('electron');
+const express = require('express');
 const path = require('path');
 
-function createWindow() {
-  const mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 800,
-    webPreferences: {
-      contextIsolation: true,
-    },
-  });
+const app = express();
 
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
-}
+// Serve static files from the root directory
+app.use(express.static(path.join(__dirname, '..')));
 
-app.whenReady().then(() => {
-  createWindow();
-
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
-    }
-  });
+// For any other route, serve index.html (SPA fallback)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
-
+module.exports = app;

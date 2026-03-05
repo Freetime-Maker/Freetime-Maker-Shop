@@ -1,4 +1,15 @@
 {
   "version": 2,
-  "buildCommand": null
+  "builds": [
+    {
+      "src": "main.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "main.js"
+    }
+  ]
 }
