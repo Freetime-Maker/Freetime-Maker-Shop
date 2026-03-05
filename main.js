@@ -7,7 +7,7 @@ const app = express();
 app.use(express.static(__dirname));
 
 // For any other route, serve index.html (SPA fallback)
-app.get('*', (req, res) => {
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
