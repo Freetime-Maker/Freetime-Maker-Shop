@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 
@@ -9,7 +10,16 @@ app.use(express.static(path.join(__dirname), {
   index: false  // Don't auto-serve index.html for directories
 }));
 
-// Fallback: serve index.html for HTML routes
+// Serve HTML files directly (don't fallback to index.html)
+app.get(/\.html$/, (req, res, next) => {
+  const filePath = path.join(__dirname, req.path);
+  if (fs.existsSync(filePath)) {
+    return res.sendFile(filePath);
+  }
+  next();
+});
+
+// Fallback: serve index.html for other routes
 app.use((req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
