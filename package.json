@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "The official online shop from Freetime Maker. Here you can buy and download games and apps for various platforms like Android, Windows, and Linux.",
   "scripts": {
-    "dev": "node main.js",
-    "start": "node main.js"
+    "start": "node main.js",
+    "dev": "node main.js"
   },
   "repository": {
     "type": "git",
