@@ -10,12 +10,16 @@ app.use(express.static(path.join(__dirname), {
   index: false  // Don't auto-serve index.html for directories
 }));
 
-// Serve HTML files directly (don't fallback to index.html)
-app.get(/\.html$/, (req, res, next) => {
+// Handle all routes - check if file exists first
+app.use((req, res, next) => {
   const filePath = path.join(__dirname, req.path);
-  if (fs.existsSync(filePath)) {
+  
+  // If it's a static file that exists, serve it
+  if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
     return res.sendFile(filePath);
   }
+  
+  // Otherwise continue to next middleware
   next();
 });
 
@@ -32,4 +36,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = app;module.exports = app;
+module.exports = app;
