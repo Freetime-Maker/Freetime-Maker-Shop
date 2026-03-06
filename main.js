@@ -4,17 +4,11 @@ const fs = require('fs');
 
 const app = express();
 
-// Serve all static files from root
-app.use(express.static(path.join(__dirname), {
-  maxAge: '1d',
-  index: false  // Don't auto-serve index.html for directories
-}));
-
 // Handle all routes - check if file exists first
 app.use((req, res, next) => {
   const filePath = path.join(__dirname, req.path);
   
-  // If it's a static file that exists, serve it
+  // If it's a file that exists, serve it
   if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
     return res.sendFile(filePath);
   }
